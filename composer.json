@@ -1,5 +1,5 @@
 {
-  "name": "abaccor/php-api-abaccor",
+  "name": "abaccor/php-api",
   "description": "Librer\u0000a para consumir API de Abaccor",
   "type": "library",
   "require": {
