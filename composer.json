@@ -1,0 +1,15 @@
+{
+  "name": "abaccor/php-api-abaccor",
+  "description": "Librer\u0000a para consumir API de Abaccor",
+  "type": "library",
+  "require": {
+    "php": ">=7.0",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  }
+}
