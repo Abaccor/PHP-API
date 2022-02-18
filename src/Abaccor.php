@@ -4,6 +4,7 @@
 namespace Abaccor;
 
 use Abaccor\Exceptions\AbaccorException;
+use Exception;
 
 class Abaccor {
 
@@ -11,6 +12,13 @@ class Abaccor {
     protected $api_key;
 
     public function __construct($endpoint, $api_key) {
+
+        if (!preg_match('/https:\/\/.+/', $endpoint)) throw new Exception('Endpoint inválido');
+
+        if (substr($endpoint, -1, 1) != '/') $endpoint .= '/';
+
+        if (!preg_match('/^[a-f0-9]{64}$/', $api_key)) throw new Exception('API KEY inválido');
+
         $this->endpoint = $endpoint;
         $this->api_key = $api_key;
     }
@@ -23,7 +31,7 @@ class Abaccor {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->endpoint,
+            CURLOPT_URL => $this->endpoint . $method,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -39,10 +47,10 @@ class Abaccor {
         ));
 
         $response = curl_exec($curl);
-        curl_close($curl);
         if (!$response) {
-            throw new AbaccorException('No se obtuvo respuesta');
+            throw new Exception(curl_error($curl));
         }
+        curl_close($curl);
         $response = json_decode($response);
 
         if ($response->status === 'fail') {

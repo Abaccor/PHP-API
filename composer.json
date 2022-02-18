@@ -1,6 +1,6 @@
 {
   "name": "abaccor/php-api",
-  "description": "Librer\u0000a para consumir API de Abaccor",
+  "description": "Librería para consumir API de Abaccor",
   "type": "library",
   "require": {
     "php": ">=7.0",
