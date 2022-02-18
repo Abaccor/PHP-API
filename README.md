@@ -12,7 +12,7 @@ $ composer require abaccor/php-api
 ## Ejemplo
 
 ````
-$abaccor = new \Abaccor\Abaccor('https://sandbox-api.abaccor.com/cfdi33/generar', '**********************');
+$abaccor = new \Abaccor\Abaccor('https://sandbox-api.abaccor.com/', '**********************');
 
 $data = [/* ... */];
 
