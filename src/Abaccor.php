@@ -27,6 +27,10 @@ class Abaccor {
         return $this->call('cfdi33/generar', $data);
     }
 
+    public function generarCfdi40($data) {
+        return $this->call('cfdi40/generar', $data);
+    }
+
     protected function call($method, $params) {
         $curl = curl_init();
 

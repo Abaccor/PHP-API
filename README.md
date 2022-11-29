@@ -9,7 +9,7 @@
 $ composer require abaccor/php-api
 ```
 
-## Ejemplo
+## Ejemplo 3.3
 
 ````
 $abaccor = new \Abaccor\Abaccor('https://sandbox-api.abaccor.com/', '**********************');
@@ -18,6 +18,20 @@ $data = [/* ... */];
 
 try{
     $response = $abaccor->GenerarCfdi33($data);
+}catch(AbaccorException $e){
+    //Ocurrió un error
+}
+````
+
+## Ejemplo 4.0
+
+````
+$abaccor = new \Abaccor\Abaccor('https://sandbox-api.abaccor.com/', '**********************');
+
+$data = [/* ... */];
+
+try{
+    $response = $abaccor->GenerarCfdi40($data);
 }catch(AbaccorException $e){
     //Ocurrió un error
 }
